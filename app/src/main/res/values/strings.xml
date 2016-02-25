@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">GuiTest</string>
+    <string name="action_save">Guardar</string>
+    <string name="name">Ingrese su nombre</string>
+    <string name="phone">Ingrese su teléfono</string>
+    <string name="schooling">Escolaridad</string>
+    <string-array name="schoolingLevels">
+        <item>Bachillerato</item>
+        <item>Técnico</item>
+        <item>Licenciatura</item>
+        <item>Maestría</item>
+        <item>Doctorado</item>
+    </string-array>
+    <string name="gender">Género</string>
+    <string name="male">Masculino</string>
+    <string name="female">Femenino</string>
+    <string name="book">Libro Favorito</string>
+    <string-array name="books">
+        <item>La Presidencia Imperial</item>
+        <item>La Silla del Aguila</item>
+        <item>Caudillos culturales en la Revolución mexicana</item>
+        <item>La Biblia</item>
+        <item>La inoportuna Muerte del Presidente</item>
+    </string-array>
+    <string name="sports">Práctica Deporte</string>
+    <string name="clean">Limpiar</string>
+</resources>
