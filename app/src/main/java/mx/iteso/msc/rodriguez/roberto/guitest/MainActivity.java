@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
@@ -17,7 +16,6 @@ import android.widget.CheckedTextView;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                                                                  getResources().getStringArray(R.array.schoolingLevels));
         ((Spinner)findViewById(R.id.spinnerSchooling)).setAdapter(spinnerAdapter);
 
-        // The auto complete textview needs also the input data, an adapter is needed and also acces to the
+        // The auto complete textview needs also the input data, an adapter is needed and also access to the
         // resources to get the array
         ArrayAdapter<String> autoCompleteAdapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item,
                                                                       getResources().getStringArray(R.array.books));
@@ -81,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         text.append(getResources().getString(R.string.schooling)).append(": ").append(((Spinner) findViewById(R.id.spinnerSchooling)).getSelectedItem()).append("\n");
         text.append(getResources().getString(R.string.gender)).append(": ").append(getResources().getString(((RadioButton) findViewById(R.id.radioMale)).isChecked() ? R.string.male : R.string.female)).append("\n");
         text.append(getResources().getString(R.string.book)).append(": ").append(((AutoCompleteTextView) findViewById(R.id.autoTextBooks)).getEditableText()).append("\n");
-        text.append(getResources().getString(R.string.sport)).append(": ").append(((CheckedTextView) findViewById(R.id.checkedTextView)).isChecked() ? "Si" : "No").append("\n");
+        text.append(getResources().getString(R.string.sport)).append(": ").append(((CheckedTextView) findViewById(R.id.checkedTextView)).isChecked() ? R.string.yes : R.string.no).append("\n");
         // Put the string buffer int the toast message and display it
         Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG);
         toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 0);
@@ -93,12 +91,15 @@ public class MainActivity extends AppCompatActivity {
     public void cleanGUI(View view) {
         // The dialog requires a context, send the activity context
         final AlertDialog dialog = new AlertDialog.Builder(MainActivity.this)
+                                       // Add a title to the dialog
                                        .setTitle(getResources().getString(R.string.clean))
+                                       // Add the message to the dialog
                                        .setMessage(getResources().getString(R.string.cleanDialog))
                                        // Set the listener for the positive button
                                        .setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
                                            @Override
                                            public void onClick(DialogInterface dialog, int which) {
+                                               // If a user presses the yes button clear the GUI elements
                                                clean();
                                            }
                                        })
@@ -106,20 +107,29 @@ public class MainActivity extends AppCompatActivity {
                                        .setNegativeButton(getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
                                            @Override
                                            public void onClick(DialogInterface dialog, int which) {
+                                               // In case no is pressed don't do anything
                                            }
                                        })
+                                       // Create a dialog with the previous characteristics
                                        .create();
+        // Add a listener to change the color of the buttons in the dialog
         dialog.setOnShowListener(new DialogInterface.OnShowListener() {
             @Override
             public void onShow(DialogInterface dialogInterface) {
+                // Change the positive button to green color with white text
                 dialog.getButton(DialogInterface.BUTTON_POSITIVE).setBackgroundColor(0xFF609000);
+                dialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.WHITE);
+                // Change the negative button to red color with white text
                 dialog.getButton(DialogInterface.BUTTON_NEGATIVE).setBackgroundColor(0xFFC00000);
+                dialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.WHITE);
             }
         });
+        // Show the dialog on the screen
         dialog.show();
     }
 
-    public void clean() {
+    private void clean() {
+        // Clear all the elements of the GUI with default or empty values
         ((EditText)findViewById(R.id.textName)).getText().clear();
         ((EditText)findViewById(R.id.textPhone)).getText().clear();
         ((Spinner)findViewById(R.id.spinnerSchooling)).setSelection(0);
