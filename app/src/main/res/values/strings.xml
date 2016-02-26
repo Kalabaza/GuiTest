@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">GuiTest</string>
     <string name="action_save">Guardar</string>
-    <string name="name">Ingrese su nombre</string>
-    <string name="phone">Ingrese su teléfono</string>
+    <string name="getName">Ingrese su nombre</string>
+    <string name="name">Nombre</string>
+    <string name="getPhone">Ingrese su teléfono</string>
+    <string name="phone">Teléfono</string>
     <string name="schooling">Escolaridad</string>
     <string-array name="schoolingLevels">
         <item>Bachillerato</item>
@@ -22,6 +24,9 @@
         <item>La Biblia</item>
         <item>La inoportuna Muerte del Presidente</item>
     </string-array>
-    <string name="sports">Práctica Deporte</string>
+    <string name="sport">Práctica Deporte</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
     <string name="clean">Limpiar</string>
+    <string name="cleanDialog">¿Desea limpiar todos los campos de la aplicación?</string>
 </resources>

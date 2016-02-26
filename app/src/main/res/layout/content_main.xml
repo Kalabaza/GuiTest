@@ -15,13 +15,13 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="textPersonName|textCapWords"
         android:ems="10"
         android:id="@+id/textName"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:hint="@string/name" />
+        android:hint="@string/getName" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -32,7 +32,7 @@
         android:layout_below="@+id/textName"
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/textName"
-        android:hint="@string/phone" />
+        android:hint="@string/getPhone" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -93,7 +93,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/book"
-        android:id="@+id/textView"
+        android:id="@+id/textvBook"
         android:layout_below="@+id/radioGroup"
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/radioGroup" />
@@ -102,15 +102,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/autoTextBooks"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/textvBook"
         android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/textView"
+        android:layout_alignEnd="@+id/textvBook"
         android:completionThreshold="1" />
 
     <CheckedTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sports"
+        android:text="@string/sport"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:id="@+id/checkedTextView"
         android:layout_below="@+id/autoTextBooks"
@@ -118,7 +118,9 @@
         android:checkMark="?android:attr/textCheckMark"
         android:layout_alignEnd="@+id/autoTextBooks"
         android:gravity="center_vertical"
-        android:clickable="true" />
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="toggleChecker" />
 
     <Button
         android:layout_width="wrap_content"
@@ -128,5 +130,7 @@
         android:layout_below="@+id/checkedTextView"
         android:layout_alignParentStart="true"
         android:layout_marginTop="68dp"
-        android:layout_alignEnd="@+id/checkedTextView" />
+        android:layout_alignEnd="@+id/checkedTextView"
+        android:textAllCaps="false"
+        android:onClick="cleanGUI" />
 </RelativeLayout>
